@@ -17,7 +17,10 @@ def get_chrome_profiles():
         if os.path.isfile(preferences_path):
             with open(preferences_path, "r") as f:
                 preferences = json.load(f)
-                profile_name = preferences["profile"]["name"]
+                try:
+                    profile_name = preferences["account_info"][0]["full_name"]
+                except:
+                    continue
                 profiles[profile_name] = profile_folder
 
     return profiles
@@ -25,6 +28,7 @@ def get_chrome_profiles():
 
 def open_chrome_with_designated_profile(profile_name, website_url):
     profiles = get_chrome_profiles()
+    print(profiles)
     if profile_name not in profiles:
         print("Profile Name NOT Found.")
         return
@@ -35,3 +39,6 @@ def open_chrome_with_designated_profile(profile_name, website_url):
     print(cmd)
     os.system(cmd)
 
+
+if __name__ == '__main__':
+    print(get_chrome_profiles())
