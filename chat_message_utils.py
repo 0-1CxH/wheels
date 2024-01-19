@@ -57,7 +57,7 @@ class ChatHistory:
 
     def save_to_file(self, file_path):
         with open(file_path, "w") as f:
-            json.dump(self.to_json_object(), f, indent=4)
+            json.dump(self.to_json_object(), f, indent=4, ensure_ascii=False)
 
     @staticmethod
     def load_from_file(file_path):
