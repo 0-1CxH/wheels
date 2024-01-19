@@ -1,0 +1,11 @@
+#!/bin/zsh
+# usage:
+# gpt -w means calling python open_chrome_with_profile.py, the arguments are the same with that script
+# gpt (with no -w) means calling python call_gpt_api.py, the arguments are the same with that script
+
+if [[ $1 == "-w" ]]; then
+    shift
+    python open_chrome_with_profile.py -p RabbitCat -u https://chat.openai.com/
+else
+    python call_gpt_api.py "$@"
+fi

@@ -1,0 +1,5 @@
+# this script is for deleting all .DS_Store files in current directory recursively
+# usage: ./deleteDSStore.sh
+
+find . -name ".DS_Store" -type f -delete
+

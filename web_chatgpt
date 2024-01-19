@@ -1,6 +1,0 @@
-#!/bin/zsh
-# wait for key press
-read -k1 -s
-# the script path is default to the current path
-SCRIPT_PATH=$(cd "$(dirname "$0")"; pwd)/open_chrome_with_profile.py
-python $SCRIPT_PATH -p RabbitCat -u https://chat.openai.com/
